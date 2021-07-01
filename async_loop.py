@@ -69,7 +69,7 @@ def kick_async_loop(*args) -> bool:
         log.warning('loop closed, stopping immediately.')
         return True
 
-    all_tasks = asyncio.Task.all_tasks()
+    all_tasks = asyncio.all_tasks(loop)
     if not len(all_tasks):
         log.debug('no more scheduled tasks, stopping after this kick.')
         stop_after_this_kick = True
